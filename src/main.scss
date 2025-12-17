@@ -94,3 +94,40 @@
   color: #000;
   opacity: 1;
 }
+
+// Dark Mode Styles
+body.dark-mode-body #root {
+  background: #1a1a1a;
+}
+
+.m-container.dark-mode .m-generator {
+  background: #2d2d2d;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.m-container.dark-mode .m-generator__header {
+  color: #e0e0e0;
+}
+
+.m-container.dark-mode .m-generator__password {
+  background: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+}
+
+.m-container.dark-mode .m-generator__passwordGenerateBtn {
+  background: #3d3d3d;
+  color: #fff;
+}
+
+.m-container.dark-mode .m-generator__btn {
+  background: #4a4a4a;
+  color: #fff;
+}
+
+.m-container.dark-mode .form-group {
+  color: #e0e0e0;
+}
+
+.m-container.dark-mode .clipboard-icon {
+  color: #fff;
+}

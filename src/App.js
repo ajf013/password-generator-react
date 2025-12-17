@@ -12,6 +12,8 @@ import {
   upperCaseLetters,
   specialCharacters,
 } from "./characters";
+import Footer from "./components/Footer/Footer";
+import { Icon } from "semantic-ui-react";
 
 toast.configure();
 
@@ -23,6 +25,19 @@ function App() {
   const [includeLowercase, setIncludeLowercase] = useState(true);
   const [includeNumbers, setIncludeNumbers] = useState(true);
   const [includeSymbols, setIncludeSymbols] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode-body");
+    } else {
+      document.body.classList.remove("dark-mode-body");
+    }
+  }, [darkMode]);
 
   const copyBtn = useRef();
 
@@ -126,8 +141,16 @@ function App() {
   };
 
   return (
-    <div className="m-container">
+    <div className={darkMode ? "m-container dark-mode" : "m-container"}>
       <div className="m-generator">
+        <div style={{ textAlign: "right", marginBottom: "10px" }}>
+          <Icon
+            name={darkMode ? "sun" : "moon"}
+            size="large"
+            style={{ cursor: "pointer", color: darkMode ? "orange" : "grey" }}
+            onClick={toggleDarkMode}
+          />
+        </div>
         <h2 className="m-generator__header">Password Generator</h2>
 
         <div className="m-generator__password">
@@ -203,6 +226,7 @@ function App() {
           Generate Password
         </button>
       </div>
+      <Footer />
     </div>
   );
 }
